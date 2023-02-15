@@ -80,32 +80,6 @@ extension WidgetExtension on Widget {
     child: this,);
   }
 
-  Divider horizontalDivider({
-    double? height,
-    double? thickness,
-    Color? color
-  }) {
-    return Divider(
-      height: height,
-      thickness: thickness,
-      color:color,
-    );
-  }
-
-  VerticalDivider verticalDivider({
-    double? width,
-    double? thickness,
-    Color? color
-}){
-    return VerticalDivider(
-      width: width,
-      thickness: thickness,
-      color:color,
-    );
-  }
-
-
-
   /// set visibility
   Widget visible(bool visible, {Widget? defaultWidget}) {
     return visible ? this : (defaultWidget ?? const SizedBox());

@@ -1,7 +1,60 @@
+import 'package:intl/intl.dart';
 
-// DateTime Extensions
 extension DateTimeExt on DateTime {
-  /// Returns Time Ago
+
+  static String timeFormat12Hours = "hh:mm a";
+  static String halfMonthDateFormat = "dd-MMM-yyyy";
+  static String fullMonthDateFormat = "dd-MMMM-yyyy";
+
+  String getToday() {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    var givenDate = DateTime(year, month, day);
+    if (today == givenDate) {
+      return "Today";
+    } else {
+      return getYesterday();
+    }
+  }
+
+  String getYesterday() {
+    final now = DateTime.now();
+    final yesterday = DateTime(now.year, now.month, now.day - 1);
+    var givenDate = DateTime(year, month, day);
+    if (yesterday == givenDate) {
+      return "Yesterday";
+    } else {
+      return dateWithHalfMonthName();
+    }
+  }
+
+  String getTomorrow() {
+    final now = DateTime.now();
+    final yesterday = DateTime(now.year, now.month, now.day + 1);
+    var givenDate = DateTime(year, month, day);
+    if (yesterday == givenDate) {
+      return "Tomorrow";
+    } else {
+      return dateWithHalfMonthName();
+    }
+  }
+
+  /// get time into 12 hour format
+  String getTimeIn12Hours() {
+    return DateFormat(timeFormat12Hours).format(this);
+  }
+
+  /// get date in string with half month name
+  String dateWithHalfMonthName({String? format}) {
+    final DateFormat formatter = DateFormat(format??halfMonthDateFormat);
+    return formatter.format(this);
+  }
+
+  /// get date in string with half month name
+  String dateWithFullMonthName({String? format}) {
+    final DateFormat formatter = DateFormat(format??fullMonthDateFormat);
+    return formatter.format(this);
+  }
 
   /// Returns true if given date is today
   bool get isToday {

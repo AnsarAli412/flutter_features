@@ -53,6 +53,8 @@ dev_dependencies:
   pdf: ^3.9.0
   #video player
   video_player: ^2.5.1
+  #intl
+  intl: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
